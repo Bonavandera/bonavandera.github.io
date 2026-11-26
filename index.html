@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bonaventura Andhikaputra | Business Development & Project Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="robots" content="noindex, nofollow" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* Dual Logo Styling in Sidebar */
+			.dual-logos {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 14px;
+				margin-bottom: 1.2em;
+			}
+			.dual-logos img {
+				height: 64px;
+				width: auto;
+				object-fit: contain;
+				border-radius: 4px;
+				background: #fff;
+				padding: 4px 8px;
+				border: 1px solid rgba(160, 160, 160, 0.3);
+			}
+
+			/* Cover Avatar Banner */
+			.cover-avatar {
+				width: 100%;
+				height: auto;
+				border-radius: 4px;
+				margin-bottom: 1.2em;
+				border: 1px solid rgba(160, 160, 160, 0.3);
+				display: block;
+				cursor: zoom-in;
+			}
+
+			/* Collage Layout matching PDF Page Composition */
+			.pdf-collage {
+				display: grid;
+				gap: 12px;
+				margin: 1.5em 0 2em 0;
+			}
+			.pdf-collage img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 4px;
+				border: 1px solid rgba(160, 160, 160, 0.3);
+				display: block;
+				cursor: zoom-in;
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+			.pdf-collage img:hover {
+				transform: scale(1.01);
+				box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+			}
+
+			/* Halaman 2 (About Me): pic01 & pic02 */
+			.collage-about {
+				grid-template-columns: 1fr 1fr;
+				grid-auto-rows: 145px;
+				margin: 1em 0 1.2em 0;
+			}
+
+			/* Halaman 3 (2019-2020): pic03 & pic04 */
+			.collage-2019 {
+				grid-template-columns: 1.4fr 1fr;
+				grid-auto-rows: 240px;
+			}
+
+			/* Halaman 4 (2021 Pertashop): pic05, pic06 (MoU), pic07, pic08, pic09 */
+			.collage-pertashop {
+				grid-template-columns: 1.15fr 1fr 1fr;
+				grid-auto-rows: 200px;
+			}
+			.collage-pertashop .span-doc {
+				grid-row: span 2;
+				object-fit: contain;
+				background: #fff;
+			}
+
+			/* Halaman 5 (2021-2023): pic10, pic11, pic12, pic13, pic14, pic15 */
+			.collage-2021-2023 {
+				grid-template-columns: repeat(3, 1fr);
+				grid-auto-rows: 210px;
+			}
+
+			/* Halaman 6 (2024-2025): pic16 (tall), pic17, pic18, pic19 (wide) */
+			.collage-2024 {
+				grid-template-columns: 1fr 1.35fr 1.35fr;
+				grid-auto-rows: 200px;
+			}
+			.collage-2024 .span-tall {
+				grid-row: span 2;
+			}
+			.collage-2024 .span-wide {
+				grid-column: span 2;
+			}
+
+			/* Halaman 7 (2026): pic21, pic22, pic23, pic24, pic25 */
+			.collage-2026 {
+				grid-template-columns: repeat(3, 1fr);
+				grid-auto-rows: 205px;
+			}
+			.collage-2026 .span-featured {
+				grid-column: span 2;
+				grid-row: span 2;
+			}
+
+			.contact-photo {
+				width: 100%;
+				height: 220px;
+				object-fit: cover;
+				object-position: center top;
+				border-radius: 4px;
+				margin-bottom: 1.2em;
+				display: block;
+				cursor: zoom-in;
+			}
+
+			@media screen and (max-width: 736px) {
+				.collage-2026, .collage-2024, .collage-2021-2023, .collage-pertashop, .collage-2019 {
+					grid-template-columns: 1fr 1fr;
+					grid-auto-rows: 160px;
+				}
+				.collage-2026 .span-featured, .collage-2024 .span-wide {
+					grid-column: span 2;
+				}
+			}
+
+			/* Lightbox Modal for full-size viewing */
+			#lightbox-overlay {
+				display: none;
+				position: fixed;
+				z-index: 10000;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+				background: rgba(0, 0, 0, 0.85);
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+				cursor: zoom-out;
+			}
+			#lightbox-overlay img {
+				max-width: 92%;
+				max-height: 92%;
+				border-radius: 4px;
+				box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+			}
+
+			/* Fix long PT names exceeding right meta column */
+			.post > header .meta .author {
+				justify-content: flex-end;
+				align-items: center;
+				gap: 10px;
+			}
+			.post > header .meta .author .name {
+				white-space: normal !important;
+				text-align: right;
+				line-height: 1.35;
+				max-width: 145px;
+				display: inline-block;
+			}
+			.post > header .meta .author img {
+				flex-shrink: 0;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Bonaventura Andhikaputra</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="#about">About Me</a></li>
+								<li><a href="#exp-2026">2026</a></li>
+								<li><a href="#exp-2024">2024–2025</a></li>
+								<li><a href="#exp-2021-2023">2021–2023</a></li>
+								<li><a href="#exp-2021-pertashop">2021 Pertashop</a></li>
+								<li><a href="#exp-2019">2019–2020</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu (Mobile & Drawer) -->
+					<section id="menu">
+						<section>
+							<ul class="links">
+								<li>
+									<a href="#about">
+										<h3>About Me</h3>
+										<p>Profile & Core Expertise</p>
+									</a>
+								</li>
+								<li>
+									<a href="#exp-2026">
+										<h3>2026 — Assistant Marketing Manager</h3>
+										<p>National Strategic Programs & EV Supply Chain</p>
+									</a>
+								</li>
+								<li>
+									<a href="#exp-2024">
+										<h3>2024–2025 — Assistant Marketing Manager</h3>
+										<p>PT Bene eBike Korsindo Representative Office</p>
+									</a>
+								</li>
+								<li>
+									<a href="#exp-2021-2023">
+										<h3>2021–2023 — Project Supervisor Staff</h3>
+										<p>Telecommunications Infrastructure & SITAC</p>
+									</a>
+								</li>
+								<li>
+									<a href="#exp-2021-pertashop">
+										<h3>2021 — PIC Project</h3>
+										<p>Pertashop 3KL Construction (Garut)</p>
+									</a>
+								</li>
+								<li>
+									<a href="#exp-2019">
+										<h3>2019–2020 — GA Staff</h3>
+										<p>Corporate Legal & Project Administration</p>
+									</a>
+								</li>
+								<li>
+									<a href="#contact">
+										<h3>Contact</h3>
+										<p>Address, Phone & Email</p>
+									</a>
+								</li>
+							</ul>
+						</section>
+					</section>
+
+				<!-- Main Content (Timeline) -->
+					<div id="main">
+
+						<!-- Halaman 7 PDF: 2026 (pic21, pic22, pic23, pic24, pic25) -->
+							<article class="post" id="exp-2026">
+								<header>
+									<div class="title">
+										<h2><a href="#exp-2026">Assistant Marketing Manager</a></h2>
+										<p>National Government Initiatives, Energy Storage & EV Ecosystem</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2026">2026</time>
+										<span class="author"><span class="name">PT Bene eBike Korsindo</span><img src="images/logo2.jpg" alt="Logo BENE eBIKE" /></span>
+									</div>
+								</header>
+
+								<p>Orchestrated strategic business plans for national government programs, including the <strong>'Nelayan Merah Putih'</strong> electric vessel procurement initiative under the Ministry of Marine Affairs and Fisheries (KKP), as well as power generation systems for the <strong>Free Nutritious Meal (MBG)</strong> program supporting the National Nutrition Agency's Service Units (SPPG).</p>
+								<p>In collaboration with <strong>PT Tomara Jaya Perkasa</strong>, led the development and local assembly of electric 3-wheeled vehicles to support the <strong>'Koperasi Merah Putih Desa'</strong> national program—managing a global supply chain integrating specialized components from South Korea and China.</p>
+								<ul>
+									<li><strong>HIPMI Exhibition (Yogyakarta):</strong> Showcased commercial drone solutions, Battery Energy Storage Systems (BESS), and installation services at the Indonesian Young Entrepreneurs Association exhibition.</li>
+									<li><strong>Strategic NDA Signing:</strong> Executed a Non-Disclosure Agreement with PT Tomara Jaya Perkasa covering supply, local assembly, and regulatory compliance for 3-wheeled electric vehicles.</li>
+									<li><strong>Regional Government Presentations (Gorontalo):</strong> Presented New Energy Storage, EV, and Drone frameworks to the Regional Secretary (SEKDA) of Gorontalo Province and contributed to cross-regional briefings spanning Java, Sumatra, Sulawesi, Papua, and Kalimantan.</li>
+									<li><strong>Battery Swap & Fast Charging POC:</strong> Formulated business proposals with South Korean investors for Proof of Concept (POC) deployments across Bali, NTB, and NTT (scheduled for mid-2026).</li>
+								</ul>
+
+								<!-- Kolase 5 Foto Halaman 7 PDF: pic21, pic22, pic23, pic24, pic25 -->
+								<div class="pdf-collage collage-2026">
+									<img src="images/pic25.jpg" class="span-featured" alt="NDA Signing PT Bene eBike Korsindo & PT Tomara Jaya Perkasa" />
+									<img src="images/pic21.jpg" alt="3-Wheeled EV Technical Presentation" />
+									<img src="images/pic22.jpg" alt="Warehouse & Assembly Facility Visit" />
+									<img src="images/pic23.jpg" alt="Electric 3-Wheeler Unit Inspection" />
+									<img src="images/pic24.jpg" alt="HIPMI Exhibition Yogyakarta Booth" />
+								</div>
+							</article>
+
+						<!-- Halaman 6 PDF: 2024 - 2025 (pic16, pic17, pic18, pic19) -->
+							<article class="post" id="exp-2024">
+								<header>
+									<div class="title">
+										<h2><a href="#exp-2024">Assistant Marketing Manager</a></h2>
+										<p>Market Entry, Operational Setup & Strategic Partnerships</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2024">2024 – 2025</time>
+										<span class="author"><span class="name">PT Bene eBike Korsindo</span><img src="images/logo2.jpg" alt="Logo BENE eBIKE" /></span>
+									</div>
+								</header>
+
+								<p>Spearheaded the market entry and operational establishment of the <strong>PT Bene eBike Korsindo</strong> representative office in Indonesia, orchestrating key cross-sector partnerships:</p>
+								<ul>
+									<li><strong>Solar & BESS Development:</strong> Signed a Memorandum of Agreement (MoA) with <strong>PT Sintech Indo Power</strong> for the development of Solar Power Plants (PLTS) and Battery Energy Storage Systems (BESS).</li>
+									<li><strong>EV Localization & Certification:</strong> Signed an MoU with <strong>PT Marlip Indo Mandiri</strong> covering vehicle certification, localization, and assembly of 2- and 3-wheeled electric vehicles.</li>
+									<li><strong>Distribution & Institutional Collaboration:</strong> Partnered with international firms (PT Surya Elektrik Internasional) and regional distributors in Manado (PT Molis Abadi Jaya), engaging the Indonesian Navy (TNI AL) for 2- and 3-wheeled EV distribution.</li>
+									<li><strong>PLTS Water Pumping POC:</strong> Implemented a solar-powered water pumping (PLTS Pompanisasi) Proof of Concept project in Situraja Village, Gantar District, Indramayu, West Java.</li>
+									<li><strong>Drone Assembly Cooperation:</strong> Initiated partnership frameworks for commercial drone assembly and certification alongside PT Sintech Indo Power.</li>
+								</ul>
+
+								<!-- Kolase 4 Foto Halaman 6 PDF: pic16, pic17, pic18, pic19 -->
+								<div class="pdf-collage collage-2024">
+									<img src="images/pic16.jpg" class="span-tall" alt="EV Assembly & Testing Facility" />
+									<img src="images/pic17.jpg" alt="PLTS Solar Water Pumping POC in Indramayu" />
+									<img src="images/pic18.jpg" alt="MoA Signing with PT Sintech Indonesia Power" />
+									<img src="images/pic19.jpg" class="span-wide" alt="Consortium MoU Signing Ceremony" />
+								</div>
+							</article>
+
+						<!-- Halaman 5 PDF: 2021 - 2023 (pic10, pic11, pic12, pic13, pic14, pic15) -->
+							<article class="post" id="exp-2021-2023">
+								<header>
+									<div class="title">
+										<h2><a href="#exp-2021-2023">Project Supervisor Staff</a></h2>
+										<p>Telecommunications Network Rollout & SITAC Permitting</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2021">2021 – 2023</time>
+										<span class="author"><span class="name">PT Eracitra Inovasi Indonesia</span><img src="images/logo1.jpg" alt="Logo Inovasi" /></span>
+									</div>
+								</header>
+
+								<p>Supervised field deployment, network optimization, and municipal regulatory permitting for national telecommunications infrastructure projects across Kalimantan and Java:</p>
+								<ul>
+									<li><strong>ZTE–Telkomsel West Kalimantan Swap (2020–2021):</strong> Managed field optimization deliverables in collaboration with PT TMR.</li>
+									<li><strong>ZTE–Telkomsel Central Kalimantan Rollout (2021–2022):</strong> Supervised installation and network optimization operations with PT DCITS.</li>
+									<li><strong>SITAC & Building Permits / IMB (2020–2023):</strong> Handled site acquisition permitting (IMB/SITAC) for telecommunications towers owned by <strong>PT Dayamitra Telekomunikasi Tbk (Mitratel)</strong>.</li>
+								</ul>
+
+								<!-- Kolase 6 Foto Halaman 5 PDF: pic10, pic11, pic12, pic13, pic14, pic15 -->
+								<div class="pdf-collage collage-2021-2023">
+									<img src="images/pic10.jpg" alt="ZTE Logistics & Telecom Warehouse" />
+									<img src="images/pic11.jpg" alt="BAPPEDA Regional Coordination Meeting" />
+									<img src="images/pic12.jpg" alt="Telecom Operations Command Room" />
+									<img src="images/pic13.jpg" alt="Indoor Network Installation Supervision" />
+									<img src="images/pic14.jpg" alt="Field Drive Test & Signal Optimization" />
+									<img src="images/pic15.jpg" alt="Field Engineering Team in Kalimantan" />
+								</div>
+							</article>
+
+						<!-- Halaman 4 PDF: 2021 Pertashop (pic05, pic06, pic07, pic08, pic09) -->
+							<article class="post" id="exp-2021-pertashop">
+								<header>
+									<div class="title">
+										<h2><a href="#exp-2021-pertashop">PIC Project — Pertashop 3KL Construction</a></h2>
+										<p>Civil Construction & Turnkey Execution (Garut, West Java)</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2021-12">2021</time>
+										<span class="author"><span class="name">PT Langgeng Karya Teknik</span><img src="images/logo1.jpg" alt="Logo Inovasi" /></span>
+									</div>
+								</header>
+
+								<p>Appointed as Person in Charge (PIC) and executing contractor under formal Memorandum of Understanding (MoU No. <code>004/LKT-MOU-SWI-V/SWI-DIS/VI/2021</code>) with <strong>PT Langgeng Karya Teknik</strong> for the construction of a <strong>3KL Pertashop unit</strong> in Sukasenang Village, Bayongbong District, Garut Regency, West Java.</p>
+								<p>Managed end-to-end civil construction, site preparation, and technical compliance in accordance with approved engineering specifications and blueprints.</p>
+
+								<!-- Kolase 5 Foto Halaman 4 PDF: pic05, pic06 (MoU), pic07, pic08, pic09 -->
+								<div class="pdf-collage collage-pertashop">
+									<img src="images/pic06.jpg" class="span-doc" alt="Official MoU Document Pertashop 3KL Garut" />
+									<img src="images/pic05.jpg" alt="Contract Signing & Documentation" />
+									<img src="images/pic07.jpg" alt="Land Measurement & Site Survey" />
+									<img src="images/pic08.jpg" alt="Site Clearing & Foundation Preparation" />
+									<img src="images/pic09.jpg" alt="Completed Pertashop 3KL Unit in Garut" />
+								</div>
+							</article>
+
+						<!-- Halaman 3 PDF: 2019 - 2020 (pic03, pic04) -->
+							<article class="post" id="exp-2019">
+								<header>
+									<div class="title">
+										<h2><a href="#exp-2019">General Affairs (GA) Staff</a></h2>
+										<p>Corporate Legal Administration, Compliance & Tender Documentation</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2019">2019 – 2020</time>
+										<span class="author"><span class="name">PT Eracitra Inovasi Indonesia</span><img src="images/logo1.jpg" alt="Logo Inovasi" /></span>
+									</div>
+								</header>
+
+								<ul>
+									<li><strong>Corporate Notarial & Legal Updates:</strong> Managed notarial deeds and legal documentation updates following changes to the company's Board of Directors.</li>
+									<li><strong>Employee Social Security Administration:</strong> Oversaw company registration, compliance, and administration for <strong>BPJS Kesehatan</strong> and <strong>BPJS Ketenagakerjaan</strong>.</li>
+									<li><strong>Government & Military Tender Qualification:</strong> Screened and prepared administrative requirements for non-SOE procurement projects across Government and Military institutions.</li>
+								</ul>
+
+								<!-- Kolase 2 Foto Halaman 3 PDF: pic03, pic04 -->
+								<div class="pdf-collage collage-2019">
+									<img src="images/pic03.jpg" alt="Government & Institutional Coordination" />
+									<img src="images/pic04.jpg" alt="Corporate & Institutional Meeting" />
+								</div>
+							</article>
+
+					</div>
+
+				<!-- Sidebar (Cover Halaman 1, About Halaman 2 & Contact Halaman 8) -->
+					<section id="sidebar">
+
+						<!-- Halaman 1 PDF: Cover (avatar.jpg + logo1.jpg & logo2.jpg) -->
+							<section id="intro">
+								<img src="images/avatar.jpg" alt="Bonaventura Andhikaputra" class="cover-avatar" />
+								<div class="dual-logos">
+									<img src="images/logo1.jpg" alt="Inovasi Connectivity Solutions" />
+									<img src="images/logo2.jpg" alt="BENE eBIKE" />
+								</div>
+								<header>
+									<h2>Bonaventura Andhikaputra</h2>
+									<p>Business Development Portfolio (2019–2026)<br />Jakarta, Indonesia</p>
+								</header>
+							</section>
+
+						<!-- Halaman 2 PDF: About Me (pic01 & pic02) -->
+							<section class="blurb" id="about">
+								<h2>About Me</h2>
+								<div class="pdf-collage collage-about">
+									<img src="images/pic01.jpg" alt="Technical Panel Assembly" />
+									<img src="images/pic02.jpg" alt="Remote Project Planning" />
+								</div>
+								<p>Results-driven <strong>Business Development Professional</strong> based in Jakarta, Indonesia, with nearly six years of experience leading domestic and international project development. Passionate about the <strong>EV Ecosystem, New Energy, and Battery Energy Storage Systems (BESS)</strong>, alongside construction consultancy and telecommunications.</p>
+								<p>Proven track record in spearheading market entry strategies, leading cross-functional teams within budget, and building strategic networks with local governments, national telecommunications companies, and the state-owned electricity provider (<strong>PLN</strong>).</p>
+							</section>
+
+						<!-- Ringkasan Timeline (Mini Posts) -->
+							<section>
+								<div class="mini-posts">
+
+									<article class="mini-post">
+										<header>
+											<h3><a href="#exp-2026">2026 — National Strategic Programs</a></h3>
+											<time class="published">KKP, MBG (SPPG) & Koperasi Merah Putih</time>
+										</header>
+									</article>
+
+									<article class="mini-post">
+										<header>
+											<h3><a href="#exp-2024">2024–2025 — Market Entry & MoUs</a></h3>
+											<time class="published">PT Bene eBike Korsindo Representative Office</time>
+										</header>
+									</article>
+
+									<article class="mini-post">
+										<header>
+											<h3><a href="#exp-2021-2023">2021–2023 — Telecom & SITAC</a></h3>
+											<time class="published">ZTE–Telkomsel & Mitratel Permitting</time>
+										</header>
+									</article>
+
+									<article class="mini-post">
+										<header>
+											<h3><a href="#exp-2021-pertashop">2021 — Pertashop 3KL Construction</a></h3>
+											<time class="published">Garut, West Java</time>
+										</header>
+									</article>
+
+									<article class="mini-post">
+										<header>
+											<h3><a href="#exp-2019">2019–2020 — General Affairs Staff</a></h3>
+											<time class="published">Corporate Legal & Gov/Military Tenders</time>
+										</header>
+									</article>
+
+								</div>
+							</section>
+
+						<!-- Halaman 8 PDF: Contact Section (pic26) -->
+							<section class="blurb" id="contact">
+								<h2>Contact</h2>
+								<img src="images/pic26.jpg" alt="Bonaventura Andhikaputra" class="contact-photo" />
+								<ul class="alt">
+									<li><strong>Phone / WhatsApp:</strong><br /><a href="https://wa.me/6287739610989" target="_blank">(+62) 877 3961 0989</a></li>
+									<li><strong>Email:</strong><br /><a href="mailto:bonavandera@gmail.com">bonavandera@gmail.com</a></li>
+									<li><strong>LinkedIn:</strong><br /><a href="https://www.linkedin.com/in/bonaventura-andhikaputra-b64094140" target="_blank">linkedin.com/in/bonaventura-andhikaputra</a></li>
+									<li><strong>Address:</strong><br />Perum. Vila Pamulang DH 1 No. 22, RT.004/RW.011, Bojongsari, Depok</li>
+									<li><strong>Alamat Korespondensi:</strong><br />(PT Eracitra Inovasi Indonesia) u.p. Suharyono<br />Gedung Palma One Lt. 7 Unit 709<br />Jl. HR Rasuna Said Kav. X-2 No. 4, Kuningan Timur, Setiabudi, Jakarta Selatan 12950</li>
+								</ul>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="https://www.linkedin.com/in/bonaventura-andhikaputra-b64094140" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://wa.me/6287739610989" target="_blank" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+									<li><a href="mailto:bonavandera@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+								<p class="copyright">&copy; 2026 Bonaventura Andhikaputra. Design: <a href="http://html5up.net">HTML5 UP</a>.</p>
+							</section>
+
+					</section>
+
+			</div>
+
+		<!-- Lightbox Modal -->
+			<div id="lightbox-overlay" onclick="this.style.display='none'">
+				<img id="lightbox-img" src="" alt="Preview" />
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				document.querySelectorAll('.pdf-collage img, .contact-photo, .cover-avatar').forEach(img => {
+					img.addEventListener('click', () => {
+						document.getElementById('lightbox-img').src = img.src;
+						document.getElementById('lightbox-overlay').style.display = 'flex';
+					});
+				});
+			</script>
+
+	</body>
+</html>
